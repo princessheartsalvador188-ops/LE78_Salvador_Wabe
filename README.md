@@ -1,45 +1,46 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int size, i, largest;
-    int arr[100];
-    char text[100];
-    int vowelCount = 0;
+    int n, i;
+    int numbers[100];
+    int largest;
 
-    
-    printf("Finding the Largest Element in an Array\n");
-    printf("Enter the number of elements: ");
-    scanf("%d", &size);
+    printf("Find the Largest Element in an Array\n");
+    printf("Enter how many elements: ");
+    scanf("%d", &n);
 
-    printf("Enter %d elements:\n", size);
-    for (i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
+    printf("Enter %d numbers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &numbers[i]);
     }
 
-    largest = arr[0]; 
-    for (i = 1; i < size; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];
+    largest = numbers[0];
+    for (i = 1; i < n; i++) {
+        if (numbers[i] > largest) {
+            largest = numbers[i];
         }
     }
 
-    printf("The largest number is: %d\n\n", largest);
+    printf("The largest element is: %d\n\n", largest);
 
-    printf("Counting Vowels in a String\n");
-    printf("Enter a word or sentence: ");
-    getchar(); 
-    fgets(text, sizeof(text), stdin);
+    char str[200];
+    int count = 0;
 
-    for (i = 0; text[i] != '\0'; i++) {
-        switch (text[i]) {
-            case 'a': case 'e': case 'i': case 'o': case 'u':
-            case 'A': case 'E': case 'I': case 'O': case 'U':
-                vowelCount++;
-                break;
+    printf("Count the Number of Vowels in a String\n");
+    printf("Enter a word or sentence: "); 
+    getchar();
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; i < strlen(str); i++) {
+        char ch = str[i];
+        if (ch == 'a' | ch == 'e' | ch == 'i' | ch == 'o' | ch == 'u' |
+            ch == 'A' | ch == 'E' | ch == 'I' | ch == 'O' | ch == 'U') {
+            count++;
         }
     }
 
-    printf("The number of vowels is: %d\n", vowelCount);
+    printf("The number of vowels in the string is: %d\n", count);
 
     return 0;
 }
